@@ -28,3 +28,4 @@ In the firts deploy you need to config github pages in Settings point to the `gh
 |Name|Presented at|Language|Slides Link|
 |-|-|-|-|
 |OWASP Top 10||PT-BR|[link](https://guisso.dev/talks/top-10/)|
+|slidev|-|-|[link](https://guisso.dev/talks/slidev/)|
