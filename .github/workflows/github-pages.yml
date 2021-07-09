@@ -25,6 +25,8 @@ jobs:
           target-folder: ${{ env.slide }}
           clean: false
 
+      - name: Checkout for README 🛎️
+        uses: actions/checkout@v2.3.1
       - name: Update README
         run: |
           echo "|${{ env.slide }}|-|-|[link](https://guisso.dev/talks/${{ env.slide }}/)|" >> README.md
