@@ -29,6 +29,7 @@ jobs:
         run: |
           echo "|${{ env.slide }}|-|-|[link](https://guisso.dev/talks/${{ env.slide }}/)|" >> README.md
       - name: Commit README changes
-        use: stefanzweifel/git-auto-commit-action@v4
-        commit_message: "readme: add ${{ env.slide }} link"
-        file_pattern: README.md
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "readme: add ${{ env.slide }} link"
+          file_pattern: README.md
