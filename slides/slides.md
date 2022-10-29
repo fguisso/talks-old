@@ -8,12 +8,19 @@ background: https://source.unsplash.com/collection/94734566/1920x1080
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
+# show line numbers in code blocks
+lineNumbers: false
 # some information about the slides, markdown enabled
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
 
   Learn more at [Sli.dev](https://sli.dev)
+# persist drawings in exports and build
+drawings:
+  persist: false
+# use UnoCSS
+css: unocss
 ---
 
 # Welcome to Slidev
@@ -35,7 +42,6 @@ Presentation slides for developers
     <carbon-logo-github />
   </a>
 </div>
-
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -72,10 +78,14 @@ h1 {
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
 </style>
+
+<!--
+Here is another comment.
+-->
 
 ---
 
@@ -119,7 +129,7 @@ interface User {
 
 function updateUser(id: number, update: User) {
   const user = getUser(id)
-  const newUser = {...user, ...update}  
+  const newUser = { ...user, ...update }
   saveUser(id, newUser)
 }
 ```
@@ -130,7 +140,7 @@ function updateUser(id: number, update: User) {
 
 <style>
 .footnotes-sep {
-  margin-top: 5em;
+  @apply mt-20 opacity-10;
 }
 .footnotes {
   @apply text-sm opacity-75;
@@ -171,6 +181,16 @@ Check out [the guides](https://sli.dev/builtin/components.html) for more.
 
 </div>
 </div>
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
 
 
 ---
@@ -246,7 +266,7 @@ Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
     />
   </div>
 
-  <div 
+  <div
     class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
     v-motion
     :initial="{ x: -80, opacity: 0}"
@@ -314,9 +334,9 @@ $$
 
 You can create diagrams / graphs from textual descriptions, directly in your Markdown.
 
-<div class="grid grid-cols-2 gap-10 pt-4 -mb-6">
+<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
 
-```mermaid {scale: 0.9}
+```mermaid {scale: 0.5}
 sequenceDiagram
     Alice->John: Hello John, how are you?
     Note over Alice,John: A typical interaction
@@ -329,10 +349,49 @@ C -->|One| D[Result 1]
 C -->|Two| E[Result 2]
 ```
 
+```plantuml {scale: 0.7}
+@startuml
+
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+}
+
+cloud {
+  [Example 1]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
+```
+
 </div>
 
 [Learn More](https://sli.dev/guide/syntax.html#diagrams)
 
+---
+src: ./pages/multiple-entries.md
+hide: false
+---
 
 ---
 layout: center
