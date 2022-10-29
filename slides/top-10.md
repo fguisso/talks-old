@@ -27,7 +27,7 @@ As 10 vulnerabilidades mais críticas da internet.
 </a>
 
 ---
-src: ../fragments/funny-bio-br.md
+src: ../pages/funny-bio-br.md
 ---
 layout: image-right
 image: https://source.unsplash.com/collection/94734566/1920x1080
